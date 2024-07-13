@@ -30,9 +30,16 @@ const App = ({ type, handleDelete, handleDisable }) => {
               <EditOutlined />
             </Link>
           }
+          tooltip={<div>Edit</div>}
         />
-        <FloatButton icon={<DeleteOutlined onCkick={handleDelete} />} />
-        <FloatButton icon={<StopOutlined onCkick={handleDisable} />} />
+        <FloatButton
+          icon={<DeleteOutlined onCkick={handleDelete} />}
+          tooltip={<div>Delete</div>}
+        />
+        <FloatButton
+          icon={<StopOutlined onCkick={handleDisable} />}
+          tooltip={<div>Disable</div>}
+        />
       </FloatButton.Group>
     </>
   );

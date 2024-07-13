@@ -1,8 +1,12 @@
 import React from "react";
 import Table from "../../components/Table";
 import { Link } from "react-router-dom";
+import { FloatButton } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 export default function ClientList() {
+  const navigate = useNavigate();
   const columns = [
     {
       title: "Name",
@@ -75,6 +79,11 @@ export default function ClientList() {
   return (
     <div>
       <Table columns={columns} data={data} onChange={onChange} />
+      <FloatButton
+        icon={<PlusOutlined />}
+        tooltip={<div>Add Client</div>}
+        onClick={() => navigate("/clients/create")}
+      />
     </div>
   );
 }

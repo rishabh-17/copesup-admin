@@ -3,6 +3,7 @@ import { Outlet, useRoutes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import {
   OrganizationList,
+  CreateOrganization,
   OrganizationDetails,
   EditOrganization,
 } from "./pages/Organizations";
@@ -62,6 +63,10 @@ function Routes() {
         {
           path: "",
           element: <OrganizationList />,
+        },
+        {
+          path: "create",
+          element: <CreateOrganization />,
         },
         {
           path: "details/:id",

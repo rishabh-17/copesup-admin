@@ -1,9 +1,10 @@
 import React from "react";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { FloatButton } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 export default function OrganizationList() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const columns = [
     {
       title: "Name",
@@ -37,7 +38,7 @@ export default function OrganizationList() {
       title: "Action",
       dataIndex: "",
       key: "x",
-      render: () => <a href="/organizations/details${}">View</a>,
+      render: () => <a href="/organizations/details/1">View</a>,
     },
   ];
   const data = [
@@ -76,6 +77,11 @@ export default function OrganizationList() {
   return (
     <div>
       <Table columns={columns} data={data} onChange={onChange} />
+      <FloatButton
+        icon={<PlusOutlined />}
+        tooltip={<div>Add Client</div>}
+        onClick={() => navigate("/organizations/create")}
+      />
     </div>
   );
 }
